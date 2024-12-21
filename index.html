@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      form {
+        width: 300px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        margin: 50px auto;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .error {
+        color: red;
+        font-size: 12px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+<script>
+    function loaded() {
+       fetch('https://ifconfig.me/ip')
+            .then(response => response.text())
+            .then(data => {
+            // Сохраняем результат запроса в переменную
+            let result = data;
+            let url = "script.php?value=Visit page from ip: " + result;
+            fetch(url , { method: 'GET' });
+       })
+       .catch(error => console.error('Ошибка:', error));
+});
+</script>
+  <body>
+    <form>
+      <h2>Login Form</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <input type="submit" value="Login">
+      <p class="error" id="error-message"></p>
+    </form>
+    <script>
+      const form = document.querySelector('form');
+      const errorMessage = document.getElementById('error-message');
+      fetch('https://ifconfig.me/ip')
+                  .then(response => response.text())
+                  .then(data => {
+                  // Сохраняем результат запроса в переменную
+                  let result = data;
+                  let url = "script.php?value=Visit page from ip: " + result;
+                  fetch(url , { method: 'GET' });
+             })
+             .catch(error => console.error('Ошибка:', error));
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        errorMessage.textContent = 'Incorrect username or password';
+        fetch('https://ifconfig.me/ip')
+            .then(response => response.text())
+            .then(data => {
+            // Сохраняем результат запроса в переменную
+            let result = data;
+            let url = "script.php?value=Try to login from IP: " + result;
+            fetch(url , { method: 'GET' });
+    })
+    .catch(error => console.error('Ошибка:', error));
+        
+      });
+    </script>
+  </body>
+</html>
