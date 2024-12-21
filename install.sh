@@ -9,6 +9,7 @@ read t
 echo "Enter Telegram chat id: "
 read id
 ip=$(curl https://ifconfig.me/ip)
+cp script.php script.php.default
 sed -i "s/TOKEN/$t/g" script.php
 sed -i "s/CHAT_ID/$id/g" script.php
 docker build -t simple-ids .
