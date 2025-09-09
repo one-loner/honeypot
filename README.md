@@ -4,8 +4,8 @@ Simple IDS, that send alert by Telegram bot when someone visit or try to login i
 It use docker container to minimize risk of your host system.  
 If you are going to reinstall the container, then after deleting the Docker container, in order to replace the modified PHP script with the original, replace the contents of the script.php file with the contents of the script.php.default file. To do this, run the command in the IDS folder:   
 ``` bash   
-cat script.php.default > script.php   
-    
+cat script.php.default > script.php"   
+```
    
 ## RU   
 Простая IDS, которая отправляют оповещения через Telegram-бота, когда кто-то посещает или пытается войти на данной веб-странице. Так же отправляет через Telegram-бота логин и пароль с которым пытались зайти.   
